@@ -56,6 +56,13 @@ export const Pages: CollectionConfig = {
       required: true,
     },
     {
+      name: 'slug',
+      type: 'text',
+      required: true,
+      unique: true,
+      index: true,
+    },
+    {
       name: 'publishedOn',
       type: 'date',
       admin: {
@@ -131,7 +138,6 @@ export const Pages: CollectionConfig = {
         },
       ],
     },
-    slugField(),
   ],
   hooks: {
     afterChange: [revalidatePage],
