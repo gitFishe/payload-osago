@@ -485,6 +485,35 @@ export interface Page {
     | ThreeItemGridBlock
     | BannerBlock
     | FormBlock
+    | {
+        heading: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        };
+        text?: string | null;
+        pricePrefix?: string | null;
+        minPrice: number;
+        priceSuffix?: string | null;
+        backgroundImageUrl?: (number | null) | Media;
+        button: {
+          label: string;
+          href: string;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'promoHero';
+      }
   )[];
   meta?: {
     title?: string | null;
@@ -1232,6 +1261,24 @@ export interface PagesSelect<T extends boolean = true> {
         threeItemGrid?: T | ThreeItemGridBlockSelect<T>;
         banner?: T | BannerBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
+        promoHero?:
+          | T
+          | {
+              heading?: T;
+              text?: T;
+              pricePrefix?: T;
+              minPrice?: T;
+              priceSuffix?: T;
+              backgroundImageUrl?: T;
+              button?:
+                | T
+                | {
+                    label?: T;
+                    href?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
       };
   meta?:
     | T
@@ -1803,18 +1850,41 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  */
 export interface Header {
   id: number;
+  headerLogo?: (number | null) | Media;
   navItems?:
     | {
-        link: {
-          type?: ('reference' | 'custom') | null;
-          newTab?: boolean | null;
-          reference?: {
-            relationTo: 'pages';
-            value: number | Page;
-          } | null;
-          url?: string | null;
-          label: string;
-        };
+        label: string;
+        href: string;
+        id?: string | null;
+      }[]
+    | null;
+  button?: {
+    buttonLabel?: string | null;
+    buttonLinks?:
+      | {
+          buttonLink: string;
+          buttonLinkHref: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  SocialMedia?:
+    | {
+        type: 'telegram' | 'instagram' | 'facebook' | 'youtube' | 'tiktok';
+        href: string;
+        id?: string | null;
+      }[]
+    | null;
+  contactInfo: {
+    mobileNumber?: string | null;
+    workiungHours: {
+      openingTime: string;
+      closingTime: string;
+    };
+  };
+  smallHeaderList?:
+    | {
+        label?: string | null;
         id?: string | null;
       }[]
     | null;
@@ -1850,18 +1920,48 @@ export interface Footer {
  * via the `definition` "header_select".
  */
 export interface HeaderSelect<T extends boolean = true> {
+  headerLogo?: T;
   navItems?:
     | T
     | {
-        link?:
+        label?: T;
+        href?: T;
+        id?: T;
+      };
+  button?:
+    | T
+    | {
+        buttonLabel?: T;
+        buttonLinks?:
           | T
           | {
-              type?: T;
-              newTab?: T;
-              reference?: T;
-              url?: T;
-              label?: T;
+              buttonLink?: T;
+              buttonLinkHref?: T;
+              id?: T;
             };
+      };
+  SocialMedia?:
+    | T
+    | {
+        type?: T;
+        href?: T;
+        id?: T;
+      };
+  contactInfo?:
+    | T
+    | {
+        mobileNumber?: T;
+        workiungHours?:
+          | T
+          | {
+              openingTime?: T;
+              closingTime?: T;
+            };
+      };
+  smallHeaderList?:
+    | T
+    | {
+        label?: T;
         id?: T;
       };
   updatedAt?: T;

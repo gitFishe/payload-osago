@@ -47,6 +47,7 @@
   --font-sans: var(--font-geist-sans);
 }
 
+
 @layer utilities {
   .container {
     width: 100%;

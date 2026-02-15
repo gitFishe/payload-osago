@@ -104,6 +104,7 @@ export default {
       fontFamily: {
         mono: ['var(--font-geist-mono)'],
         sans: ['var(--font-geist-sans)'],
+        circe:['var(--font-circe)'],
       },
       keyframes: {
         fadeIn: {

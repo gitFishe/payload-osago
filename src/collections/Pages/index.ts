@@ -21,6 +21,7 @@ import {
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
 import { revalidatePage, revalidateDelete } from './hooks/revalidatePage'
+import {PromoHero} from "@/blocks/PromoHero";
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -103,6 +104,7 @@ export const Pages: CollectionConfig = {
                 ThreeItemGrid,
                 Banner,
                 FormBlock,
+                PromoHero,
               ],
               required: true,
             },

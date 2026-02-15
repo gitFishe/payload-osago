@@ -1,0 +1,12 @@
+.underline :global(span) {
+    position: relative;
+    text-decoration: none !important;
+}
+.underline :global(span)::before {
+    content:'';
+    bottom: 0;
+    position: absolute;
+    height: 5px;
+    background-color: #FFA63A;
+    width: 100%;
+}

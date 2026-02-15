@@ -7,6 +7,7 @@ import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { ThreeItemGridBlock } from '@/blocks/ThreeItemGrid/Component'
 import { toKebabCase } from '@/utilities/toKebabCase'
+import { PromoHeroBlock } from '@/blocks/Hero/Component'
 import React, { Fragment } from 'react'
 
 import type { Page } from '../payload-types'
@@ -20,6 +21,7 @@ const blockComponents = {
   formBlock: FormBlock,
   mediaBlock: MediaBlock,
   threeItemGrid: ThreeItemGridBlock,
+  promoHero:PromoHeroBlock,
 }
 
 export const RenderBlocks: React.FC<{

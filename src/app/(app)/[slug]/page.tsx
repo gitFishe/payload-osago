@@ -11,6 +11,7 @@ import React from 'react'
 
 import type { Page } from '@/payload-types'
 import { notFound } from 'next/navigation'
+import {Container} from "@/components/container";
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
@@ -62,10 +63,12 @@ export default async function Page({ params }: Args) {
   const { hero, layout } = page
 
   return (
-    <article className="pt-16 pb-24">
-      <RenderHero {...hero} />
-      <RenderBlocks blocks={layout} />
-    </article>
+    <Container>
+      <article className="pt-16 pb-24">
+        <RenderHero {...hero} />
+        <RenderBlocks blocks={layout} />
+      </article>
+    </Container>
   )
 }
 
