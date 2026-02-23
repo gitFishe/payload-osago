@@ -8,6 +8,7 @@ import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { ThreeItemGridBlock } from '@/blocks/ThreeItemGrid/Component'
 import { toKebabCase } from '@/utilities/toKebabCase'
 import { PromoHeroBlock } from '@/blocks/Hero/Component'
+import { TrustBlock } from '@/blocks/TrustBlock/Component'
 import React, { Fragment } from 'react'
 
 import type { Page } from '../payload-types'
@@ -22,6 +23,7 @@ const blockComponents = {
   mediaBlock: MediaBlock,
   threeItemGrid: ThreeItemGridBlock,
   promoHero:PromoHeroBlock,
+  trustBlock:TrustBlock,
 }
 
 export const RenderBlocks: React.FC<{

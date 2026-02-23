@@ -12,6 +12,7 @@ import { GeistMono } from 'geist/font/mono'
 import React from 'react'
 import './globals.css'
 import { circe } from '../../../public/fonts/fonts'
+import {Container} from "@/components/container";
 
 /* const { SITE_NAME, TWITTER_CREATOR, TWITTER_SITE } = process.env
 const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
@@ -60,7 +61,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           <LivePreviewListener />
 
           <Header />
-          <main>{children}</main>
+            <main>{children}</main>
           <Footer />
         </Providers>
       </body>

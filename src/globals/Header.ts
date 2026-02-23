@@ -51,14 +51,14 @@ export const Header: GlobalConfig = {
               ]
             },
             {
-              name:'SocialMedia',
+              name:'socialMedia',
               type:'array',
               fields: [
                 {
                   name: 'type',
                   type: 'select',
                   required: true,
-                  options: ['telegram', 'instagram', 'facebook', 'youtube', 'tiktok'],
+                  options: ['telegram', 'whatsup', 'instagram'],
                 },
                 { name: 'href', type: 'text', required: true },
               ]
@@ -69,7 +69,7 @@ export const Header: GlobalConfig = {
               fields:[
                 {name: 'mobileNumber', type: 'text'},
                 {
-                  name:'workiungHours',
+                  name:'workingHours',
                   type:'group',
                   fields: [
                     {

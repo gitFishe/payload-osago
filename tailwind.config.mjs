@@ -48,6 +48,10 @@ export default {
         sm: 'calc(var(--radius) - 4px)',
       },
       colors: {
+        customBlue: '#3A62FF',
+        customOrange: '#FFA63A',
+        customGray:'#f5f7f9',
+        customText:'#010F32',
         accent: {
           DEFAULT: 'hsl(var(--accent))',
           foreground: 'hsl(var(--accent-foreground))',

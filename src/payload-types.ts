@@ -514,6 +514,48 @@ export interface Page {
         blockName?: string | null;
         blockType: 'promoHero';
       }
+    | {
+        title?: string | null;
+        items?:
+          | {
+              icon: number | Media;
+              text: {
+                root: {
+                  type: string;
+                  children: {
+                    type: any;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ('ltr' | 'rtl') | null;
+                  format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              };
+              id?: string | null;
+            }[]
+          | null;
+        guaranteeText?: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'trustBlock';
+      }
   )[];
   meta?: {
     title?: string | null;
@@ -1279,6 +1321,21 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        trustBlock?:
+          | T
+          | {
+              title?: T;
+              items?:
+                | T
+                | {
+                    icon?: T;
+                    text?: T;
+                    id?: T;
+                  };
+              guaranteeText?: T;
+              id?: T;
+              blockName?: T;
+            };
       };
   meta?:
     | T
@@ -1868,16 +1925,16 @@ export interface Header {
         }[]
       | null;
   };
-  SocialMedia?:
+  socialMedia?:
     | {
-        type: 'telegram' | 'instagram' | 'facebook' | 'youtube' | 'tiktok';
+        type: 'telegram' | 'whatsup' | 'instagram';
         href: string;
         id?: string | null;
       }[]
     | null;
   contactInfo: {
     mobileNumber?: string | null;
-    workiungHours: {
+    workingHours: {
       openingTime: string;
       closingTime: string;
     };
@@ -1940,7 +1997,7 @@ export interface HeaderSelect<T extends boolean = true> {
               id?: T;
             };
       };
-  SocialMedia?:
+  socialMedia?:
     | T
     | {
         type?: T;
@@ -1951,7 +2008,7 @@ export interface HeaderSelect<T extends boolean = true> {
     | T
     | {
         mobileNumber?: T;
-        workiungHours?:
+        workingHours?:
           | T
           | {
               openingTime?: T;

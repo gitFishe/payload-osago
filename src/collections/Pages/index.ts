@@ -22,6 +22,8 @@ import {
 } from '@payloadcms/plugin-seo/fields'
 import { revalidatePage, revalidateDelete } from './hooks/revalidatePage'
 import {PromoHero} from "@/blocks/PromoHero";
+import {Trust} from "@/blocks/Trust";
+import {generateSlugHook} from "@/hooks/generateSlugHook";
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -62,6 +64,7 @@ export const Pages: CollectionConfig = {
       required: true,
       unique: true,
       index: true,
+      hooks: { beforeValidate: [generateSlugHook] },
     },
     {
       name: 'publishedOn',
@@ -105,6 +108,7 @@ export const Pages: CollectionConfig = {
                 Banner,
                 FormBlock,
                 PromoHero,
+                Trust,
               ],
               required: true,
             },

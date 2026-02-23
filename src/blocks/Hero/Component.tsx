@@ -92,7 +92,7 @@ export const PromoHeroBlock: React.FC<Props> = ({
             <div className='p-20 pr-0 w-[576px] relative z-2'>
                 <div className='rounded-[10px] mb-7 overflow-hidden flex w-fit h-10 *:px-3 *:h-full *:flex *:items-center font-bold'>
                     <span className='bg-[#e6ebff] text-[#3A62FF]'>АКЦИОННОЕ ПРЕДЛОЖЕНИЯ ДНЯ</span>
-                    <span className='bg-[#ffa63a]'>{pricePrefix} {minPrice}{priceSuffix}</span>
+                    <span className='bg-[#ffa63a]'>{pricePrefix} {minPrice} {priceSuffix}</span>
                 </div>
                 {heading ? <h3><RichText className={`mb-8 text-[46px] leading-[50px] !text-[#010F32] font-bold [&_span]:text-[#3A62FF] ${styles.underline}`} data={heading}/></h3> : null}
                 <p className='text-[#748DB1] text-xl mb-8'>{text}</p>
