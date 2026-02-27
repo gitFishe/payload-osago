@@ -9,7 +9,6 @@ type CreateSelectionArrayFieldArgs = {
 
 type CreateSelectionGroupFieldArgs = {
   name: string
-  label: string
   detailBlocks: Block[]
   maxRows?: number
 }
@@ -29,12 +28,10 @@ export const createSelectionArrayField = ({
 
 export const createSelectionGroupField = ({
   name,
-  label,
   detailBlocks,
   maxRows,
 }: CreateSelectionGroupFieldArgs): Field => ({
   name,
-  label,
   type: 'group',
   fields: [createSelectionArrayField({ detailBlocks, maxRows })],
 })

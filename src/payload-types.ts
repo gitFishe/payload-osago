@@ -581,51 +581,7 @@ export interface Page {
           | null;
         image?: (number | null) | Media;
         selectionGroup?: {
-          selectionGroupOsago?: {
-            items?:
-              | {
-                  title: string;
-                  hasSummary?: boolean | null;
-                  summary?: {
-                    text?: string | null;
-                    image?: (number | null) | Media;
-                  };
-                  details?:
-                    | (
-                        | BuilderIconTextNoteDetail
-                        | BuilderCountryDetail
-                        | BuilderDaysDetail
-                        | BuilderPeoplesDetail
-                        | BuilderInputDetail
-                      )[]
-                    | null;
-                  id?: string | null;
-                }[]
-              | null;
-          };
-          selectionGroupKasko?: {
-            items?:
-              | {
-                  title: string;
-                  hasSummary?: boolean | null;
-                  summary?: {
-                    text?: string | null;
-                    image?: (number | null) | Media;
-                  };
-                  details?:
-                    | (
-                        | BuilderIconTextNoteDetail
-                        | BuilderCountryDetail
-                        | BuilderDaysDetail
-                        | BuilderPeoplesDetail
-                        | BuilderInputDetail
-                      )[]
-                    | null;
-                  id?: string | null;
-                }[]
-              | null;
-          };
-          selectionGroupGreenCard?: {
+          selection?: {
             items?:
               | {
                   title: string;
@@ -1523,59 +1479,7 @@ export interface PagesSelect<T extends boolean = true> {
               selectionGroup?:
                 | T
                 | {
-                    selectionGroupOsago?:
-                      | T
-                      | {
-                          items?:
-                            | T
-                            | {
-                                title?: T;
-                                hasSummary?: T;
-                                summary?:
-                                  | T
-                                  | {
-                                      text?: T;
-                                      image?: T;
-                                    };
-                                details?:
-                                  | T
-                                  | {
-                                      builderIconTextNoteDetail?: T | BuilderIconTextNoteDetailSelect<T>;
-                                      builderCountryDetail?: T | BuilderCountryDetailSelect<T>;
-                                      builderDaysDetail?: T | BuilderDaysDetailSelect<T>;
-                                      builderPeoplesDetail?: T | BuilderPeoplesDetailSelect<T>;
-                                      builderInputDetail?: T | BuilderInputDetailSelect<T>;
-                                    };
-                                id?: T;
-                              };
-                        };
-                    selectionGroupKasko?:
-                      | T
-                      | {
-                          items?:
-                            | T
-                            | {
-                                title?: T;
-                                hasSummary?: T;
-                                summary?:
-                                  | T
-                                  | {
-                                      text?: T;
-                                      image?: T;
-                                    };
-                                details?:
-                                  | T
-                                  | {
-                                      builderIconTextNoteDetail?: T | BuilderIconTextNoteDetailSelect<T>;
-                                      builderCountryDetail?: T | BuilderCountryDetailSelect<T>;
-                                      builderDaysDetail?: T | BuilderDaysDetailSelect<T>;
-                                      builderPeoplesDetail?: T | BuilderPeoplesDetailSelect<T>;
-                                      builderInputDetail?: T | BuilderInputDetailSelect<T>;
-                                    };
-                                id?: T;
-                              };
-                        };
-                    selectionGroupGreenCard?:
+                    selection?:
                       | T
                       | {
                           items?:

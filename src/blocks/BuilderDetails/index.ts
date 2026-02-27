@@ -14,30 +14,6 @@ export {
   PeoplesDetailBlock,
 }
 
-export const osagoDetailBlocks: Block[] = [
-  IconTextNoteDetailBlock,
-  CountryDetailBlock,
-  DaysDetailBlock,
-  PeoplesDetailBlock,
-  InputDetailBlock,
-]
-
-export const kaskoDetailBlocks: Block[] = [
-  IconTextNoteDetailBlock,
-  CountryDetailBlock,
-  DaysDetailBlock,
-  PeoplesDetailBlock,
-  InputDetailBlock,
-]
-
-export const greenCardDetailBlocks: Block[] = [
-  IconTextNoteDetailBlock,
-  CountryDetailBlock,
-  DaysDetailBlock,
-  PeoplesDetailBlock,
-  InputDetailBlock,
-]
-
 export const defaultSelectionDetailBlocks: Block[] = [
   IconTextNoteDetailBlock,
   CountryDetailBlock,

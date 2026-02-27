@@ -1,10 +1,6 @@
 import type { Block } from 'payload'
 
-import {
-  greenCardDetailBlocks,
-  kaskoDetailBlocks,
-  osagoDetailBlocks,
-} from '@/blocks/BuilderDetails'
+import { defaultSelectionDetailBlocks } from '@/blocks/BuilderDetails'
 import { createSelectionGroupField } from '@/fields/builder/createSelectionGroupField'
 
 export const BuilderBlock: Block = {
@@ -42,19 +38,8 @@ export const BuilderBlock: Block = {
       type: 'group',
       fields: [
         createSelectionGroupField({
-          name: 'selectionGroupOsago',
-          label: 'OSAGO',
-          detailBlocks: osagoDetailBlocks,
-        }),
-        createSelectionGroupField({
-          name: 'selectionGroupKasko',
-          label: 'KASKO',
-          detailBlocks: kaskoDetailBlocks,
-        }),
-        createSelectionGroupField({
-          name: 'selectionGroupGreenCard',
-          label: 'Green Card',
-          detailBlocks: greenCardDetailBlocks,
+          name: 'selection',
+          detailBlocks: defaultSelectionDetailBlocks,
         }),
       ],
     },
