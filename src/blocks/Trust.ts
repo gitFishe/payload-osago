@@ -1,14 +1,11 @@
-import type { CollectionConfig } from 'payload'
+import type {Block, CollectionConfig} from 'payload'
 import {lexicalEditor} from "@payloadcms/richtext-lexical";
 
-export const Trust: CollectionConfig = {
+export const Trust: Block = {
     admin: {
         group: 'Content',
     },
     slug:'trustBlock',
-    access: {
-        read: () => true,
-    },
     fields:[
         {
             name:'title',

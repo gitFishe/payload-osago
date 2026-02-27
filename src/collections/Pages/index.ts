@@ -24,6 +24,7 @@ import { revalidatePage, revalidateDelete } from './hooks/revalidatePage'
 import {PromoHero} from "@/blocks/PromoHero";
 import {Trust} from "@/blocks/Trust";
 import {generateSlugHook} from "@/hooks/generateSlugHook";
+import {BuilderBlock} from "@/blocks/BuilderBlock";
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -109,6 +110,7 @@ export const Pages: CollectionConfig = {
                 FormBlock,
                 PromoHero,
                 Trust,
+                BuilderBlock,
               ],
               required: true,
             },

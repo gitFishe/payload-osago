@@ -556,6 +556,102 @@ export interface Page {
         blockName?: string | null;
         blockType: 'trustBlock';
       }
+    | {
+        title?: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        subtitle?: string | null;
+        stepsGroup?:
+          | {
+              stepsBlock?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        image?: (number | null) | Media;
+        selectionGroup?: {
+          selectionGroupOsago?: {
+            items?:
+              | {
+                  title: string;
+                  hasSummary?: boolean | null;
+                  summary?: {
+                    text?: string | null;
+                    image?: (number | null) | Media;
+                  };
+                  details?:
+                    | (
+                        | BuilderIconTextNoteDetail
+                        | BuilderCountryDetail
+                        | BuilderDaysDetail
+                        | BuilderPeoplesDetail
+                        | BuilderInputDetail
+                      )[]
+                    | null;
+                  id?: string | null;
+                }[]
+              | null;
+          };
+          selectionGroupKasko?: {
+            items?:
+              | {
+                  title: string;
+                  hasSummary?: boolean | null;
+                  summary?: {
+                    text?: string | null;
+                    image?: (number | null) | Media;
+                  };
+                  details?:
+                    | (
+                        | BuilderIconTextNoteDetail
+                        | BuilderCountryDetail
+                        | BuilderDaysDetail
+                        | BuilderPeoplesDetail
+                        | BuilderInputDetail
+                      )[]
+                    | null;
+                  id?: string | null;
+                }[]
+              | null;
+          };
+          selectionGroupGreenCard?: {
+            items?:
+              | {
+                  title: string;
+                  hasSummary?: boolean | null;
+                  summary?: {
+                    text?: string | null;
+                    image?: (number | null) | Media;
+                  };
+                  details?:
+                    | (
+                        | BuilderIconTextNoteDetail
+                        | BuilderCountryDetail
+                        | BuilderDaysDetail
+                        | BuilderPeoplesDetail
+                        | BuilderInputDetail
+                      )[]
+                    | null;
+                  id?: string | null;
+                }[]
+              | null;
+          };
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'builderBlock';
+      }
   )[];
   meta?: {
     title?: string | null;
@@ -934,6 +1030,82 @@ export interface Form {
     | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BuilderIconTextNoteDetail".
+ */
+export interface BuilderIconTextNoteDetail {
+  text: string;
+  icon?: (number | null) | Media;
+  hasNote?: boolean | null;
+  note?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'builderIconTextNoteDetail';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BuilderCountryDetail".
+ */
+export interface BuilderCountryDetail {
+  text: string;
+  placeholder?: string | null;
+  options?:
+    | {
+        text: string;
+        icon?: (number | null) | Media;
+        hasNote?: boolean | null;
+        note?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'builderCountryDetail';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BuilderDaysDetail".
+ */
+export interface BuilderDaysDetail {
+  text: string;
+  icon?: (number | null) | Media;
+  startPlaceholder?: string | null;
+  endPlaceholder?: string | null;
+  disablePastStartDate?: boolean | null;
+  preventEndBeforeStart?: boolean | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'builderDaysDetail';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BuilderPeoplesDetail".
+ */
+export interface BuilderPeoplesDetail {
+  text: string;
+  minPeople: number;
+  maxPeople: number;
+  defaultPeople: number;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'builderPeoplesDetail';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BuilderInputDetail".
+ */
+export interface BuilderInputDetail {
+  text: string;
+  placeholder: string;
+  type?: ('text' | 'number') | null;
+  required?: boolean | null;
+  min?: number | null;
+  max?: number | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'builderInputDetail';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1336,6 +1508,103 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        builderBlock?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              stepsGroup?:
+                | T
+                | {
+                    stepsBlock?: T;
+                    id?: T;
+                  };
+              image?: T;
+              selectionGroup?:
+                | T
+                | {
+                    selectionGroupOsago?:
+                      | T
+                      | {
+                          items?:
+                            | T
+                            | {
+                                title?: T;
+                                hasSummary?: T;
+                                summary?:
+                                  | T
+                                  | {
+                                      text?: T;
+                                      image?: T;
+                                    };
+                                details?:
+                                  | T
+                                  | {
+                                      builderIconTextNoteDetail?: T | BuilderIconTextNoteDetailSelect<T>;
+                                      builderCountryDetail?: T | BuilderCountryDetailSelect<T>;
+                                      builderDaysDetail?: T | BuilderDaysDetailSelect<T>;
+                                      builderPeoplesDetail?: T | BuilderPeoplesDetailSelect<T>;
+                                      builderInputDetail?: T | BuilderInputDetailSelect<T>;
+                                    };
+                                id?: T;
+                              };
+                        };
+                    selectionGroupKasko?:
+                      | T
+                      | {
+                          items?:
+                            | T
+                            | {
+                                title?: T;
+                                hasSummary?: T;
+                                summary?:
+                                  | T
+                                  | {
+                                      text?: T;
+                                      image?: T;
+                                    };
+                                details?:
+                                  | T
+                                  | {
+                                      builderIconTextNoteDetail?: T | BuilderIconTextNoteDetailSelect<T>;
+                                      builderCountryDetail?: T | BuilderCountryDetailSelect<T>;
+                                      builderDaysDetail?: T | BuilderDaysDetailSelect<T>;
+                                      builderPeoplesDetail?: T | BuilderPeoplesDetailSelect<T>;
+                                      builderInputDetail?: T | BuilderInputDetailSelect<T>;
+                                    };
+                                id?: T;
+                              };
+                        };
+                    selectionGroupGreenCard?:
+                      | T
+                      | {
+                          items?:
+                            | T
+                            | {
+                                title?: T;
+                                hasSummary?: T;
+                                summary?:
+                                  | T
+                                  | {
+                                      text?: T;
+                                      image?: T;
+                                    };
+                                details?:
+                                  | T
+                                  | {
+                                      builderIconTextNoteDetail?: T | BuilderIconTextNoteDetailSelect<T>;
+                                      builderCountryDetail?: T | BuilderCountryDetailSelect<T>;
+                                      builderDaysDetail?: T | BuilderDaysDetailSelect<T>;
+                                      builderPeoplesDetail?: T | BuilderPeoplesDetailSelect<T>;
+                                      builderInputDetail?: T | BuilderInputDetailSelect<T>;
+                                    };
+                                id?: T;
+                              };
+                        };
+                  };
+              id?: T;
+              blockName?: T;
+            };
       };
   meta?:
     | T
@@ -1463,6 +1732,77 @@ export interface FormBlockSelect<T extends boolean = true> {
   form?: T;
   enableIntro?: T;
   introContent?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BuilderIconTextNoteDetail_select".
+ */
+export interface BuilderIconTextNoteDetailSelect<T extends boolean = true> {
+  text?: T;
+  icon?: T;
+  hasNote?: T;
+  note?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BuilderCountryDetail_select".
+ */
+export interface BuilderCountryDetailSelect<T extends boolean = true> {
+  text?: T;
+  placeholder?: T;
+  options?:
+    | T
+    | {
+        text?: T;
+        icon?: T;
+        hasNote?: T;
+        note?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BuilderDaysDetail_select".
+ */
+export interface BuilderDaysDetailSelect<T extends boolean = true> {
+  text?: T;
+  icon?: T;
+  startPlaceholder?: T;
+  endPlaceholder?: T;
+  disablePastStartDate?: T;
+  preventEndBeforeStart?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BuilderPeoplesDetail_select".
+ */
+export interface BuilderPeoplesDetailSelect<T extends boolean = true> {
+  text?: T;
+  minPeople?: T;
+  maxPeople?: T;
+  defaultPeople?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BuilderInputDetail_select".
+ */
+export interface BuilderInputDetailSelect<T extends boolean = true> {
+  text?: T;
+  placeholder?: T;
+  type?: T;
+  required?: T;
+  min?: T;
+  max?: T;
   id?: T;
   blockName?: T;
 }

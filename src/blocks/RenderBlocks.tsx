@@ -9,6 +9,7 @@ import { ThreeItemGridBlock } from '@/blocks/ThreeItemGrid/Component'
 import { toKebabCase } from '@/utilities/toKebabCase'
 import { PromoHeroBlock } from '@/blocks/Hero/Component'
 import { TrustBlock } from '@/blocks/TrustBlock/Component'
+import { BuilderBlock } from '@/blocks/BuilderBlock/Component'
 import React, { Fragment } from 'react'
 
 import type { Page } from '../payload-types'
@@ -24,6 +25,7 @@ const blockComponents = {
   threeItemGrid: ThreeItemGridBlock,
   promoHero:PromoHeroBlock,
   trustBlock:TrustBlock,
+  builderBlock:BuilderBlock,
 }
 
 export const RenderBlocks: React.FC<{
@@ -47,11 +49,20 @@ export const RenderBlocks: React.FC<{
                 <div className="my-16" key={index}>
                   {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
                   {/* @ts-ignore - weird type mismatch here */}
-                  <Block id={toKebabCase(blockName!)} {...block} />
+                  <Block id={toKebabCase(blockName ?? blockType ?? `block-${index}`)} {...block} />
                 </div>
               )
             }
           }
+
+          if (process.env.NODE_ENV !== 'production') {
+            return (
+              <div className="my-16 border border-red-300 bg-red-50 p-3 text-sm text-red-700" key={index}>
+                Unknown block type: {String(blockType)}
+              </div>
+            )
+          }
+
           return null
         })}
       </Fragment>
