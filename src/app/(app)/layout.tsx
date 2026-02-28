@@ -11,7 +11,7 @@ import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import React from 'react'
 import './globals.css'
-import { circe } from '../../../public/fonts/fonts'
+import {circe, ropasans} from '../../../public/fonts/fonts'
 import {Container} from "@/components/container";
 
 /* const { SITE_NAME, TWITTER_CREATOR, TWITTER_SITE } = process.env
@@ -42,11 +42,13 @@ const twitterSite = TWITTER_SITE ? ensureStartsWith(TWITTER_SITE, 'https://') : 
 } */
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
+  const htmlClasses = [GeistSans.variable, GeistMono.variable, circe.variable, ropasans.variable]
+    .filter(Boolean)
+    .join(' ')
+
   return (
     <html
-      className={
-      [GeistSans.variable, GeistMono.variable].filter(Boolean).join(' ') + ' ' +
-      circe.variable}
+      className={htmlClasses}
       lang="en"
       suppressHydrationWarning
     >

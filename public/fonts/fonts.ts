@@ -12,3 +12,12 @@ export const circe = localFont({
     variable: '--font-circe',
     display: 'swap',
 })
+
+export const ropasans = localFont({
+    src: [
+        { path: '../../public/fonts/ropaSans/RopaSans-Italic.ttf',   weight: '400', style: 'italic' },
+        { path: '../../public/fonts/ropaSans/RopaSans-Regular.ttf',   weight: '400', style: 'normal' },
+    ],
+    variable: '--font-ropa-sans',
+    display: 'swap',
+})

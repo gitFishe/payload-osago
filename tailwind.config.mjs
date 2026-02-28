@@ -109,6 +109,7 @@ export default {
         mono: ['var(--font-geist-mono)'],
         sans: ['var(--font-geist-sans)'],
         circe:['var(--font-circe)'],
+        ropasans:['var(--font-ropa-sans)'],
       },
       keyframes: {
         fadeIn: {
