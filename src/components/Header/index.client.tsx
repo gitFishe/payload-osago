@@ -21,7 +21,6 @@ type Props = {
 }
 
 export function HeaderClient({ header }: Props) {
-    console.log('header', header)
 
     const navItems = header?.navItems || []
     const buttonItems = header?.button?.buttonLinks || [];

@@ -22,6 +22,8 @@ export const BuilderBlock = ({
                              }:BuilderBlockProps) => {
 
 
+    console.log(stepsGroup,'stepsGroup')
+
   return (
    <section className='bg-white text-customText pt-[48px]'>
         <div className='container'>
@@ -34,7 +36,7 @@ export const BuilderBlock = ({
                     <div className='flex
 
                         pl-3.5
-                        mb-35.75
+
                         [&>*:not(:last-child)]:mr-15.75
                         [&>*:not(:last-child)]:before:absolute
                         [&>*:not(:last-child)]:before:-right-3.5
@@ -49,7 +51,7 @@ export const BuilderBlock = ({
                         [&>*:not(:last-child)]:before:-translate-x-[-100%]
                         [&>*:not(:last-child)]:before:-translate-y-1/2
                     '>
-                        {stepsGroup.map((step,i) => (
+                        {stepsGroup.map((step, i) => (
                             <div key={i} className='bg-[#f8f9fb] flex items-center relative h-14 px-6 rounded-xl'>
                                 <span
                                     aria-hidden
@@ -80,10 +82,14 @@ export const BuilderBlock = ({
                             </div>
                         ))}
                     </div>
+                    <iframe className='scale-80 w-full h-[190px] mr-auto' src="https://store.steampowered.com/widget/3764200/"></iframe>
                 </div>
                 <div className='mt-auto'>
                     <img src={image.url}/>
                 </div>
+            </div>
+            <div className='bg-green-900 h-40 w-full'>
+
             </div>
         </div>
    </section>

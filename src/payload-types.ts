@@ -1053,12 +1053,7 @@ export interface BuilderPeoplesDetail {
  * via the `definition` "BuilderInputDetail".
  */
 export interface BuilderInputDetail {
-  text: string;
-  placeholder: string;
-  type?: ('text' | 'number') | null;
-  required?: boolean | null;
-  min?: number | null;
-  max?: number | null;
+  placeholder?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'builderInputDetail';
@@ -1701,12 +1696,7 @@ export interface BuilderPeoplesDetailSelect<T extends boolean = true> {
  * via the `definition` "BuilderInputDetail_select".
  */
 export interface BuilderInputDetailSelect<T extends boolean = true> {
-  text?: T;
   placeholder?: T;
-  type?: T;
-  required?: T;
-  min?: T;
-  max?: T;
   id?: T;
   blockName?: T;
 }
