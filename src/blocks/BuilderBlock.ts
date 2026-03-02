@@ -1,7 +1,7 @@
 import type { Block } from 'payload'
 
 import { defaultSelectionDetailBlocks } from '@/blocks/BuilderDetails'
-import { createSelectionGroupField } from '@/fields/builder/createSelectionGroupField'
+import { createSelectionItemFields } from '@/fields/builder/selectionItemFields'
 
 export const BuilderBlock: Block = {
   slug: 'builderBlock',
@@ -35,13 +35,12 @@ export const BuilderBlock: Block = {
     },
     {
       name: 'selectionGroup',
-      type: 'group',
-      fields: [
-        createSelectionGroupField({
-          name: 'selection',
-          detailBlocks: defaultSelectionDetailBlocks,
-        }),
-      ],
+      type: 'array',
+      maxRows: 3,
+      admin: {
+        initCollapsed: true,
+      },
+      fields: createSelectionItemFields(defaultSelectionDetailBlocks),
     },
   ],
 }

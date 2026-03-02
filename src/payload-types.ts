@@ -580,30 +580,26 @@ export interface Page {
             }[]
           | null;
         image?: (number | null) | Media;
-        selectionGroup?: {
-          selection?: {
-            items?:
-              | {
-                  title: string;
-                  hasSummary?: boolean | null;
-                  summary?: {
-                    text?: string | null;
-                    image?: (number | null) | Media;
-                  };
-                  details?:
-                    | (
-                        | BuilderIconTextNoteDetail
-                        | BuilderCountryDetail
-                        | BuilderDaysDetail
-                        | BuilderPeoplesDetail
-                        | BuilderInputDetail
-                      )[]
-                    | null;
-                  id?: string | null;
-                }[]
-              | null;
-          };
-        };
+        selectionGroup?:
+          | {
+              title: string;
+              hasSummary?: boolean | null;
+              summary?: {
+                text?: string | null;
+                image?: (number | null) | Media;
+              };
+              details?:
+                | (
+                    | BuilderIconTextNoteDetail
+                    | BuilderCountryDetail
+                    | BuilderDaysDetail
+                    | BuilderPeoplesDetail
+                    | BuilderInputDetail
+                  )[]
+                | null;
+              id?: string | null;
+            }[]
+          | null;
         id?: string | null;
         blockName?: string | null;
         blockType: 'builderBlock';
@@ -1474,32 +1470,24 @@ export interface PagesSelect<T extends boolean = true> {
               selectionGroup?:
                 | T
                 | {
-                    selection?:
+                    title?: T;
+                    hasSummary?: T;
+                    summary?:
                       | T
                       | {
-                          items?:
-                            | T
-                            | {
-                                title?: T;
-                                hasSummary?: T;
-                                summary?:
-                                  | T
-                                  | {
-                                      text?: T;
-                                      image?: T;
-                                    };
-                                details?:
-                                  | T
-                                  | {
-                                      builderIconTextNoteDetail?: T | BuilderIconTextNoteDetailSelect<T>;
-                                      builderCountryDetail?: T | BuilderCountryDetailSelect<T>;
-                                      builderDaysDetail?: T | BuilderDaysDetailSelect<T>;
-                                      builderPeoplesDetail?: T | BuilderPeoplesDetailSelect<T>;
-                                      builderInputDetail?: T | BuilderInputDetailSelect<T>;
-                                    };
-                                id?: T;
-                              };
+                          text?: T;
+                          image?: T;
                         };
+                    details?:
+                      | T
+                      | {
+                          builderIconTextNoteDetail?: T | BuilderIconTextNoteDetailSelect<T>;
+                          builderCountryDetail?: T | BuilderCountryDetailSelect<T>;
+                          builderDaysDetail?: T | BuilderDaysDetailSelect<T>;
+                          builderPeoplesDetail?: T | BuilderPeoplesDetailSelect<T>;
+                          builderInputDetail?: T | BuilderInputDetailSelect<T>;
+                        };
+                    id?: T;
                   };
               id?: T;
               blockName?: T;

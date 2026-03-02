@@ -1,28 +1,73 @@
 import type React from 'react'
-import type { Page } from '@/payload-types'
+import type {Media, Page} from '@/payload-types'
 import {RichText} from "@/components/RichText";
 import {SerializedEditorState} from "lexical";
 
-type BuilderBlockProps = {
-  title: SerializedEditorState,
-  subtitle:string,
-  image:{
-    alt?: string | null,
-    url: string,
-  },
-  stepsGroup:Array<{
-    stepsBlock:string,
-  }>,
+type CommonBlock = {
+    "blockType": string,
+    "id": string
+    "blockName"?: string | null,
 }
-export const BuilderBlock = ({
-    title,
-    subtitle,
-    image,
-    stepsGroup,
-                             }:BuilderBlockProps) => {
+
+type IconTextBlockProps = CommonBlock & {
+    "text": string
+    "icon"?: string | Media | null,
+    "hasNote"?: false,
+    "note"?: object | null,
+}
+type InputBlockProps = CommonBlock & {
+    "placeholder"?: string | null,
+}
+type PeoplesBlockProps = CommonBlock & {
+    'text': string,
+    "minPeople": number,
+    "maxPeople:": number,
+    'defaultPeople': number,
+}
+type DaysBlockProps = CommonBlock & {
+    'text': string,
+    'icon'?: string | null,
+}
+
+type BuilderBlockProps = {
+    title: SerializedEditorState,
+    subtitle:string,
+    image:{
+        alt?: string | null,
+        url: string,
+    },
+    stepsGroup:Array<{
+        stepsBlock:string,
+    }>,
+    selectionGroup:Array<{
+        details:
+            IconTextBlockProps
+            | InputBlockProps
+            | PeoplesBlockProps
+            | DaysBlockProps
+    }>,
+}
 
 
-    console.log(stepsGroup,'stepsGroup')
+
+
+export const BuilderBlock = (props:BuilderBlockProps) => {
+
+
+
+    const { title,
+        subtitle,
+        image,
+        stepsGroup,} = props
+
+
+    console.log(props,'props')
+
+    const firstDetails = props.selectionGroup?.[0]?.details
+
+    console.log('details count:', firstDetails?.length)
+    console.log('block types:', firstDetails?.map((b) => b.blockType))
+    console.log('details json:', JSON.stringify(firstDetails, null, 2))
 
   return (
    <section className='bg-white text-customText pt-[48px]'>
