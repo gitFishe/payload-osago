@@ -24,7 +24,6 @@ export const PromoHero: Block = {
             label: 'Текст',
             type: 'text',
         },
-
         {
             type: 'row',
             fields: [

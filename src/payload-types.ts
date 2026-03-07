@@ -604,6 +604,107 @@ export interface Page {
         blockName?: string | null;
         blockType: 'builderBlock';
       }
+    | {
+        order?: {
+          title?: {
+            root: {
+              type: string;
+              children: {
+                type: any;
+                version: number;
+                [k: string]: unknown;
+              }[];
+              direction: ('ltr' | 'rtl') | null;
+              format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+              indent: number;
+              version: number;
+            };
+            [k: string]: unknown;
+          } | null;
+          order?:
+            | {
+                messengers?: {
+                  title?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ('ltr' | 'rtl') | null;
+                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  description?: string | null;
+                  links?:
+                    | {
+                        socialLinkIcon?: ('viber' | 'telegram') | null;
+                        socialLinkName?: string | null;
+                        id?: string | null;
+                      }[]
+                    | null;
+                };
+                solo?: {
+                  title?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ('ltr' | 'rtl') | null;
+                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  description?: string | null;
+                  buttonText?: string | null;
+                };
+                id?: string | null;
+              }[]
+            | null;
+        };
+        instruction?: {
+          title?: string | null;
+          steps?:
+            | {
+                text?: string | null;
+                id?: string | null;
+              }[]
+            | null;
+          blockLinksGroup?:
+            | {
+                text?: {
+                  root: {
+                    type: string;
+                    children: {
+                      type: any;
+                      version: number;
+                      [k: string]: unknown;
+                    }[];
+                    direction: ('ltr' | 'rtl') | null;
+                    format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                    indent: number;
+                    version: number;
+                  };
+                  [k: string]: unknown;
+                } | null;
+                img?: (number | null) | Media;
+                id?: string | null;
+              }[]
+            | null;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'policyInstructionBlock';
+      }
   )[];
   meta?: {
     title?: string | null;
@@ -1488,6 +1589,60 @@ export interface PagesSelect<T extends boolean = true> {
                           builderInputDetail?: T | BuilderInputDetailSelect<T>;
                         };
                     id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        policyInstructionBlock?:
+          | T
+          | {
+              order?:
+                | T
+                | {
+                    title?: T;
+                    order?:
+                      | T
+                      | {
+                          messengers?:
+                            | T
+                            | {
+                                title?: T;
+                                description?: T;
+                                links?:
+                                  | T
+                                  | {
+                                      socialLinkIcon?: T;
+                                      socialLinkName?: T;
+                                      id?: T;
+                                    };
+                              };
+                          solo?:
+                            | T
+                            | {
+                                title?: T;
+                                description?: T;
+                                buttonText?: T;
+                              };
+                          id?: T;
+                        };
+                  };
+              instruction?:
+                | T
+                | {
+                    title?: T;
+                    steps?:
+                      | T
+                      | {
+                          text?: T;
+                          id?: T;
+                        };
+                    blockLinksGroup?:
+                      | T
+                      | {
+                          text?: T;
+                          img?: T;
+                          id?: T;
+                        };
                   };
               id?: T;
               blockName?: T;

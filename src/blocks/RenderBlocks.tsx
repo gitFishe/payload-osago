@@ -10,6 +10,8 @@ import { toKebabCase } from '@/utilities/toKebabCase'
 import { PromoHeroBlock } from '@/blocks/Hero/Component'
 import { TrustBlock } from '@/blocks/TrustBlock/Component'
 import { BuilderBlock } from '@/blocks/BuilderBlock/Component'
+import {PolicyInstructionBlock} from "@/blocks/PolicyInstructionBlock/Component";
+
 import React, { Fragment } from 'react'
 
 import type { Page } from '../payload-types'
@@ -26,6 +28,7 @@ const blockComponents = {
   promoHero:PromoHeroBlock,
   trustBlock:TrustBlock,
   builderBlock:BuilderBlock,
+  policyInstructionBlock:PolicyInstructionBlock,
 }
 
 export const RenderBlocks: React.FC<{

@@ -25,6 +25,7 @@ import {PromoHero} from "@/blocks/PromoHero";
 import {Trust} from "@/blocks/Trust";
 import {generateSlugHook} from "@/hooks/generateSlugHook";
 import {BuilderBlock} from "@/blocks/BuilderBlock";
+import {PolicyInstructionBlock} from "@/blocks/PolicyInstructionBlock";
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -111,6 +112,7 @@ export const Pages: CollectionConfig = {
                 PromoHero,
                 Trust,
                 BuilderBlock,
+                PolicyInstructionBlock,
               ],
               required: true,
             },
