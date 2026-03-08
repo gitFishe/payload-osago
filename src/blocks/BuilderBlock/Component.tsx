@@ -51,7 +51,7 @@ type BuilderBlockProps = {
         hasSummary: boolean
         summary: {
             text:string
-            image: Media | string | null
+            image: Media
         }
         details: SelectionDetails[]
     }>,
@@ -187,7 +187,7 @@ export const BuilderBlock = (props:BuilderBlockProps) => {
                                         <div className='absolute peer-hover:block hidden rounded-[6px] w-85 top-9 -left-2.25 bg-customBlueDark z-20 p-4'>
                                             <p className='text-white'>{item.summary.text}</p>
                                             {item.summary.image ? (
-                                                <div className='w-77.5 h-50 mt-3.5'><img src={item.summary.image.url}/></div>
+                                                <div className='w-77.5 h-50 mt-3.5'><img src={item.summary.image.url || undefined}/></div>
                                             ) : ' '}
                                             <div className='absolute left-4 -translate-y-full top-0 w-4 h-2.5 border-x-8 border-x-transparent border-b-10 border-b-customBlueDark'/>
                                         </div>

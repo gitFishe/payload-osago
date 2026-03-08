@@ -621,55 +621,52 @@ export interface Page {
             };
             [k: string]: unknown;
           } | null;
-          order?:
-            | {
-                messengers?: {
-                  title?: {
-                    root: {
-                      type: string;
-                      children: {
-                        type: any;
-                        version: number;
-                        [k: string]: unknown;
-                      }[];
-                      direction: ('ltr' | 'rtl') | null;
-                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-                      indent: number;
-                      version: number;
-                    };
-                    [k: string]: unknown;
-                  } | null;
-                  description?: string | null;
-                  links?:
-                    | {
-                        socialLinkIcon?: ('viber' | 'telegram') | null;
-                        socialLinkName?: string | null;
-                        id?: string | null;
-                      }[]
-                    | null;
-                };
-                solo?: {
-                  title?: {
-                    root: {
-                      type: string;
-                      children: {
-                        type: any;
-                        version: number;
-                        [k: string]: unknown;
-                      }[];
-                      direction: ('ltr' | 'rtl') | null;
-                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-                      indent: number;
-                      version: number;
-                    };
-                    [k: string]: unknown;
-                  } | null;
-                  description?: string | null;
-                  buttonText?: string | null;
-                };
-                id?: string | null;
-              }[]
-            | null;
+          messengers?: {
+            title?: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            description?: string | null;
+            links?:
+              | {
+                  socialLinkIcon?: ('viber' | 'telegram') | null;
+                  socialLinkName?: string | null;
+                  linkToMedia?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+          };
+          solo?: {
+            title?: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            description?: string | null;
+            buttonText?: string | null;
+            buttonLink?: string | null;
+          };
         };
         instruction?: {
           title?: string | null;
@@ -1600,30 +1597,27 @@ export interface PagesSelect<T extends boolean = true> {
                 | T
                 | {
                     title?: T;
-                    order?:
+                    messengers?:
                       | T
                       | {
-                          messengers?:
+                          title?: T;
+                          description?: T;
+                          links?:
                             | T
                             | {
-                                title?: T;
-                                description?: T;
-                                links?:
-                                  | T
-                                  | {
-                                      socialLinkIcon?: T;
-                                      socialLinkName?: T;
-                                      id?: T;
-                                    };
+                                socialLinkIcon?: T;
+                                socialLinkName?: T;
+                                linkToMedia?: T;
+                                id?: T;
                               };
-                          solo?:
-                            | T
-                            | {
-                                title?: T;
-                                description?: T;
-                                buttonText?: T;
-                              };
-                          id?: T;
+                        };
+                    solo?:
+                      | T
+                      | {
+                          title?: T;
+                          description?: T;
+                          buttonText?: T;
+                          buttonLink?: T;
                         };
                   };
               instruction?:

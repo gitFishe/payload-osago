@@ -20,77 +20,83 @@ export const PolicyInstructionBlock:Block = {
                     }),
                 },
                 {
-                    name:'order',
-                    type:'array',
-                    maxRows: 2,
+                    name:'messengers',
+                    type:'group',
                     fields: [
                         {
-                            name:'messengers',
-                            type:'group',
-                            fields: [
-                                {
-                                    name:'title',
-                                    type:'richText',
-                                    editor: lexicalEditor({
-                                        features: ({ defaultFeatures }) => [
-                                            ...defaultFeatures,
-                                        ],
-                                    }),
-                                },
-                                {
-                                    name:'description',
-                                    type:"text",
-                                },
-                                {
-                                    name:'links',
-                                    type:'array',
-                                    maxRows:4,
-                                    fields: [
-                                        {
-                                            name:'socialLinkIcon',
-                                            type:'select',
-                                            options: [
-                                                {
-                                                    label: 'viber',
-                                                    value: 'viber',
-                                                },
-                                                {
-                                                    label: 'telegram',
-                                                    value: 'telegram',
-                                                },
-                                            ],
-                                        },
-                                        {
-                                            name:'socialLinkName',
-                                            type:'text',
-                                        }
-                                    ]
-                                }
-                            ]
+                            name:'title',
+                            type:'richText',
+                            editor: lexicalEditor({
+                                features: ({ defaultFeatures }) => [
+                                    ...defaultFeatures,
+                                ],
+                            }),
                         },
                         {
-                            name:'solo',
-                            type:'group',
+                            name:'description',
+                            type:"text",
+                        },
+                        {
+                            name:'links',
+                            type:'array',
+                            maxRows:4,
                             fields: [
                                 {
-                                    name:'title',
-                                    type:'richText',
-                                    editor: lexicalEditor({
-                                        features: ({ defaultFeatures }) => [
-                                            ...defaultFeatures,
-                                        ],
-                                    }),
+                                    name:'socialLinkIcon',
+                                    type:'select',
+                                    options: [
+                                        {
+                                            label: 'viber',
+                                            value: 'viber',
+                                        },
+                                        {
+                                            label: 'telegram',
+                                            value: 'telegram',
+                                        },
+                                    ],
                                 },
                                 {
-                                    name:'description',
+                                    name:'socialLinkName',
                                     type:'text',
                                 },
                                 {
-                                    name:'buttonText',
-                                    type: "text",
-                                },
+                                    name:'linkToMedia',
+                                    type:'text',
+                                }
                             ]
                         }
+                    ]
+                },
+                {
+                    name:'solo',
+                    type:'group',
+                    fields: [
+                        {
+                            name:'title',
+                            type:'richText',
+                            editor: lexicalEditor({
+                                features: ({ defaultFeatures }) => [
+                                    ...defaultFeatures,
+                                ],
+                            }),
+                        },
+                        {
+                            name:'description',
+                            type:'text',
+                        },
+                        {
+                            type:'row',
+                            fields: [
+                                {
+                                    name:'buttonText',
+                                    type:'text',
+                                },
+                                {
+                                    name:'buttonLink',
+                                    type:'text',
+                                }
+                            ]
+                        },
                     ]
                 }
             ]
