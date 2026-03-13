@@ -134,6 +134,10 @@ export const PolicyInstructionBlock:Block = {
                             }),
                         },
                         {
+                            name:'link',
+                            type:'text',
+                        },
+                        {
                             name:'img',
                             type:'upload',
                             relationTo:'media',

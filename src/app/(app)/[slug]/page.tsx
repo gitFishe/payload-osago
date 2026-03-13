@@ -83,7 +83,7 @@ export async function generateMetadata({ params }: Args): Promise<Metadata> {
 const queryPageBySlug = async ({ slug }: { slug: string }) => {
   const { isEnabled: draft } = await draftMode()
 
-  const payload = await getPayload({ config: configPromise })
+  const payload = await getPayload({ config: configPromise})
 
   const result = await payload.find({
     collection: 'pages',

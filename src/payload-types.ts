@@ -693,6 +693,7 @@ export interface Page {
                   };
                   [k: string]: unknown;
                 } | null;
+                link?: string | null;
                 img?: (number | null) | Media;
                 id?: string | null;
               }[]
@@ -701,6 +702,47 @@ export interface Page {
         id?: string | null;
         blockName?: string | null;
         blockType: 'policyInstructionBlock';
+      }
+    | {
+        blockTitle?: string | null;
+        blockDescription?: string | null;
+        tabs?:
+          | {
+              tabsSocialNetwork: 'telegram' | 'google' | 'viber' | 'facebook';
+              tabsIcon: number | Media;
+              tabsTitle: string;
+              tabsGrade?: {
+                root: {
+                  type: string;
+                  children: {
+                    type: any;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ('ltr' | 'rtl') | null;
+                  format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              } | null;
+              slides?:
+                | {
+                    review?: string | null;
+                    ReviwersName?: string | null;
+                    ReviewSource?: {
+                      text?: string | null;
+                      link?: string | null;
+                    };
+                    id?: string | null;
+                  }[]
+                | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'swiperBlock';
       }
   )[];
   meta?: {
@@ -1634,9 +1676,40 @@ export interface PagesSelect<T extends boolean = true> {
                       | T
                       | {
                           text?: T;
+                          link?: T;
                           img?: T;
                           id?: T;
                         };
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        swiperBlock?:
+          | T
+          | {
+              blockTitle?: T;
+              blockDescription?: T;
+              tabs?:
+                | T
+                | {
+                    tabsSocialNetwork?: T;
+                    tabsIcon?: T;
+                    tabsTitle?: T;
+                    tabsGrade?: T;
+                    slides?:
+                      | T
+                      | {
+                          review?: T;
+                          ReviwersName?: T;
+                          ReviewSource?:
+                            | T
+                            | {
+                                text?: T;
+                                link?: T;
+                              };
+                          id?: T;
+                        };
+                    id?: T;
                   };
               id?: T;
               blockName?: T;

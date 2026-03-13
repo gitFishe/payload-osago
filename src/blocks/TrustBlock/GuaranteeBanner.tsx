@@ -9,7 +9,7 @@ export default function GuaranteeBanner({text}:{text:SerializedEditorState}) {
                     <img src='/media/guarantee-100%25.svg'/>
                 </div>
                 <RichText className='[&_strong]:text-customBlue text-customText font-bold text-xl' data={text}/>
-                <div className='translate-y-[-15px] ml-auto'>
+                <div className='-translate-y-3.75 ml-auto'>
                     <img src='/media/guarantee-symbol.png'/>
                 </div>
             </div>

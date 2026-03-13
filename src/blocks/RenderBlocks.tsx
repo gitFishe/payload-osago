@@ -11,6 +11,7 @@ import { PromoHeroBlock } from '@/blocks/Hero/Component'
 import { TrustBlock } from '@/blocks/TrustBlock/Component'
 import { BuilderBlock } from '@/blocks/BuilderBlock/Component'
 import {PolicyInstructionBlock} from "@/blocks/PolicyInstructionBlock/Component";
+import {SwiperBlock} from "@/blocks/SwiperBlock/Component";
 
 import React, { Fragment } from 'react'
 
@@ -29,6 +30,8 @@ const blockComponents = {
   trustBlock:TrustBlock,
   builderBlock:BuilderBlock,
   policyInstructionBlock:PolicyInstructionBlock,
+  swiperBlock:SwiperBlock,
+
 }
 
 export const RenderBlocks: React.FC<{

@@ -26,6 +26,7 @@ import {Trust} from "@/blocks/Trust";
 import {generateSlugHook} from "@/hooks/generateSlugHook";
 import {BuilderBlock} from "@/blocks/BuilderBlock";
 import {PolicyInstructionBlock} from "@/blocks/PolicyInstructionBlock";
+import {SwiperBlock} from "@/blocks/SwiperBlock";
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -113,6 +114,7 @@ export const Pages: CollectionConfig = {
                 Trust,
                 BuilderBlock,
                 PolicyInstructionBlock,
+                SwiperBlock,
               ],
               required: true,
             },

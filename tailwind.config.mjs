@@ -48,6 +48,7 @@ export default {
         sm: 'calc(var(--radius) - 4px)',
       },
       colors: {
+        customTextGray: '#748DB1',
         customBlueDark:'#323952',
         customDarkWhite:'#f8f9fb',
         customLightBlue: '#e6ebff',
